@@ -13,6 +13,12 @@ the goals / steps of this project are the following:
 [image12]: ./examples/grayscale.jpg "grayscale"
 [image1]: ./writeup_images/image1.png "image1"
 [image1_grayscale]: ./writeup_images/image1_grayscale.png "image1_grayscale"
+[image1_graythreshold]: ./writeup_images/image1_graythreshold.png "image1_graythreshold"
+[image1_canny]: ./writeup_images/image1_canny.png "image1_canny"
+[image1_roi]: ./writeup_images/image1_roi.png "image1_roi"
+[image1_hough]: ./writeup_images/image1_hough.png "image1_hough"
+[image1_fit]: ./writeup_images/image1_fit.png "image1_fit"
+[image1_result]: ./writeup_images/image1_result.png "image1_result"
 
 ---
 
@@ -22,18 +28,41 @@ the goals / steps of this project are the following:
 
 my pipeline consisted of 5 steps. first, i converted the images to grayscale, then i .... 
 
+![alt text][image1]
+
+#### 1.1. Grayscale Conversion
+
+![alt text][image1_grayscale]
+
+#### 1.2. Intensity Threshold
+
+![alt text][image1_graythreshold]
+
+#### 1.3. Canny Edge Detection
+
+![alt text][image1_canny]
+
+#### 1.4. ROI Segmentation
+
+![alt text][image1_roi]
+
+#### 1.5. Hough Line Detection
+
+![alt text][image1_hough]
+
+#### 1.6. Line Fitting
+
+![alt text][image1_fit]
+
+#### 1.7. Image Merging
+
+![alt text][image1_result]
+
+
 in order to draw a single line on the left and right lanes, i modified the draw_lines() function by ...
 
 if you'd like to include images to show how the pipeline works, here is how to include an image: 
 
-![alt text][image1]
-![alt text][image1_grayscale]
-![alt text][image1_graythreshold]
-![alt text][image1_canny]
-![alt text][image1_roi]
-![alt text][image1_hough]
-![alt text][image1_fit]
-![alt text][image1_result]
 
 
 ###2. Potential Shortcomings in the Pipeline
