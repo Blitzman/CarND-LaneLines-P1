@@ -10,7 +10,9 @@ the goals / steps of this project are the following:
 
 [//]: # (image references)
 
-[image1]: ./examples/grayscale.jpg "grayscale"
+[image12]: ./examples/grayscale.jpg "grayscale"
+[image1]: ./writeup_images/image1.png "image1"
+[image1_grayscale]: ./writeup_images/image1_grayscale.png "image1_grayscale"
 
 ---
 
@@ -24,14 +26,14 @@ in order to draw a single line on the left and right lanes, i modified the draw_
 
 if you'd like to include images to show how the pipeline works, here is how to include an image: 
 
-![alt text][./writeup_images/image1.png]
-![alt text][./writeup_images/image1_grayscale.png]
-![alt text][./writeup_images/image1_graythreshold.png]
-![alt text][./writeup_images/image1_canny.png]
-![alt text][./writeup_images/image1_roi.png]
-![alt text][./writeup_images/image1_hough.png]
-![alt text][./writeup_images/image1_fit.png]
-![alt text][./writeup_images/image1_result.png]
+![alt text][image1]
+![alt text][image1_grayscale]
+![alt text][image1_graythreshold]
+![alt text][image1_canny]
+![alt text][image1_roi]
+![alt text][image1_hough]
+![alt text][image1_fit]
+![alt text][image1_result]
 
 
 ###2. Potential Shortcomings in the Pipeline
