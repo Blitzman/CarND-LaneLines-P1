@@ -24,7 +24,14 @@ in order to draw a single line on the left and right lanes, i modified the draw_
 
 if you'd like to include images to show how the pipeline works, here is how to include an image: 
 
-![alt text][image1]
+![alt text][writeup_images/image1]
+![alt text][writeup_images/image1_grayscale]
+![alt text][writeup_images/image1_graythreshold]
+![alt text][writeup_images/image1_canny]
+![alt text][writeup_images/image1_roi]
+![alt text][writeup_images/image1_hough]
+![alt text][writeup_images/image1_fit]
+![alt text][writeup_images/image1_result]
 
 
 ###2. Potential Shortcomings in the Pipeline
