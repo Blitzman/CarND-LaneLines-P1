@@ -7,6 +7,7 @@ In this project, we intended to identify lane lines on the road, first in an ima
 
 [image1]: ./writeup_images/image1.png "image1"
 [image1_grayscale]: ./writeup_images/image1_grayscale.png "image1_grayscale"
+[image1_equalized]: ./writeup_images/image1_equalized.png "image1_equalized"
 [image1_graythreshold]: ./writeup_images/image1_graythreshold.png "image1_graythreshold"
 [image1_gaussian]: ./writeup_images/image1_gaussian.png "image1_gaussian"
 [image1_canny]: ./writeup_images/image1_canny.png "image1_canny"
@@ -18,6 +19,8 @@ In this project, we intended to identify lane lines on the road, first in an ima
 [image2]: ./writeup_images/image2.png "image2"
 [image2_result]: ./writeup_images/image2_result.png "image2_result"
 [image3]: ./writeup_images/image3.png "image3"
+[image3_whitemask]: ./writeup_images/image3_whitemask.png "image3_whitemask"
+[image3_yellowmask]: ./writeup_images/image3_yellowmask.png "image3_yellowmask"
 [image3_result]: ./writeup_images/image3_result.png "image3_result"
 [image4]: ./writeup_images/image4.png "image4"
 [image4_result]: ./writeup_images/image4_result.png "image4_result"
@@ -113,27 +116,38 @@ It was also successfully tested on the provided videos: white and yellow (click 
 
 ### 2. Potential Shortcomings in the Pipeline
 
-one potential shortcoming would be what would happen when ... 
-
 * Yellow lines
 * Road surface color variations
 * Shaky lines
 * Curves
 
-another shortcoming could be ...
+[![Challenge Basic](http://img.youtube.com/vi/GubKeWtd768/0.jpg)](http://www.youtube.com/watch?v=GubKeWtd768 "Self-Driving Car Nanodegree - P1: Finding Lane Lines - Challenge Basic")
+
+### 3. Tackling the Challenge
+
+In this section we will describe the improvements that were implemented to produce good results on the challenge video. That example is particularly difficult because it features both white and yellow lines with road surface color variations, certain steering angle, and many elements in the scene that might confuse the edge and line detectors. In the end, we were able to generate reasonably good results by improving our pipeline with three steps: histogram equalization, white/yellow masking, and outlier filtering.
+
+#### 3.1. Histogram Equalization
+
+![Grayscale Conversion][image1_grayscale]
+![Equalized Histogram][image1_equalized]
+
+#### 3.2. White/Yellow HSV Masking
+
+![Input Image 3][image3]
+
+![Image 3 White Mask][image3_whitemask]
+![Image 3 Yellow Mask][image3_yellowmask]
+
+#### 3.3. Outlier Filtering
+
+[![Outlier Filtering](http://img.youtube.com/vi/eFkr1CV-LCU/0.jpg)](http://www.youtube.com/watch?v=eFkr1CV-LCU "Self-Driving Car Nanodegree - P1: Finding Lane Lines - Outlier Filtering")
+
+After putting everything together, the challenge video presents no problems and both lanes are detected accurately and consistently in every frame (click to play).
+
+[![Challenge Improved](http://img.youtube.com/vi/X1gYco6lI6A/0.jpg)](http://www.youtube.com/watch?v=X1gYco6lI6A "Self-Driving Car Nanodegree - P1: Finding Lane Lines - Challenge Improved")
 
 ### 3. Possible Improvements to the Pipeline
 
-a possible improvement would be to ...
-
-### 4. Implemented Improvements on the Basic Pipeline
-
-#### 4.1. Histogram Equalization
-
-#### 4.2. Yellow and White Masks
-
-#### 4.3. Outlier Filtering
-
-#### 4.4. Line Averaging
-
-#### 4.5. Curved ROI
+* Line averaging through frames
+* Adaptive ROI using optical flow
