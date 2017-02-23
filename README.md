@@ -1,12 +1,7 @@
 #**Finding Lane Lines on the Road** 
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
-**finding lane lines on the road**
-
-the goals / steps of this project are the following:
-* make a pipeline that finds lane lines on the road
-* reflect on your work in a written report
-
+In this project, we intended to identify lane lines on the road, first in an image, and later in a video stream. Our first goal was to write code including a series of steps (pipeline) that identify and draw the lane lines on a few test images. Once we could successfully identify the lines in an image, we ran the code on a video stream. The next goal was to then refine our pipeline with parameter tuning and by averaging and extrapolating the lines. At last, we tackled the challenge video.
 
 [//]: # (image references)
 
