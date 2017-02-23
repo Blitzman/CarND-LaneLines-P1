@@ -16,6 +16,7 @@ the goals / steps of this project are the following:
 [image1_gaussian]: ./writeup_images/image1_gaussian.png "image1_gaussian"
 [image1_canny]: ./writeup_images/image1_canny.png "image1_canny"
 [image1_roi]: ./writeup_images/image1_roi.png "image1_roi"
+[image1_roipoly]: ./writeup_images/image1_roipoly.png "image1_roipoly"
 [image1_hough]: ./writeup_images/image1_hough.png "image1_hough"
 [image1_fit]: ./writeup_images/image1_fit.png "image1_fit"
 [image1_result]: ./writeup_images/image1_result.png "image1_result"
@@ -65,9 +66,10 @@ After that, we applied the Canny edge detector to generate a binary image to tra
 
 #### 1.5. ROI Segmentation
 
-Next, we will filter any edges detected around the periphery that aren't lane lines. In order to do so, we applied a ROI segmentation process, assuming that the lanes will always appear in roughly the same region of the image of the front facing camera. By using the provided helper function `region_of_interest()` we apply a mask to keep a region of the image defined by a polygon formed from a set of vertices, the rest of the image is set to 0 intensity. We used the following vertices `[[(0,imshape[0]),(450, 320), (490, 320), (imshape[1],imshape[0])]]` to achieve a reasonably good result.
+Next, we will filter any edges detected around the periphery that aren't lane lines. In order to do so, we applied a ROI segmentation process, assuming that the lanes will always appear in roughly the same region of the image of the front facing camera. By using the provided helper function `region_of_interest()` we apply a mask to keep a region of the image defined by a polygon formed from a set of vertices, the rest of the image is set to 0 intensity. We used the following vertices `[[(0,imshape[0]),(imshape[1]/2 - 64, imshape[0]/2 + 64), (imshape[1]/2 + 64, imshape[0]/2 +64), (imshape[1],imshape[0])]]` to achieve a reasonably good result.
 
 ![ROI Segmentation][image1_roi]
+![ROI Poly][image1_roipoly]
 
 #### 1.6. Hough Line Detection
 
