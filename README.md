@@ -159,5 +159,6 @@ After putting everything together, the challenge video presents no problems and 
 
 ### 3. Possible Improvements to the Pipeline
 
-* Line averaging through frames
-* Adaptive ROI using optical flow
+* Line averaging through frames. We detected that some lines are shaky because of the little variations that affect the detected edges in different frames. One possible way to overcome this problem would be to average the extrapolated lanes for a reduced window of frames.
+
+* Adaptive ROI using optical flow. When the car approaches curves, the ROI we are using is no longer useful since it extends vertically to the horizon of the picture. Using an adaptive ROI that curves or morphs its vertices based on the optical flow of the video (or car steering) would clearly help when dealing with curves.
