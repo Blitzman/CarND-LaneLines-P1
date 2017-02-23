@@ -116,10 +116,12 @@ It was also successfully tested on the provided videos: white and yellow (click 
 
 ### 2. Potential Shortcomings in the Pipeline
 
-* Yellow lines
-* Road surface color variations
-* Shaky lines
-* Curves
+* Yellow lines are hard to detect if they are not clearly different from the ground.
+* Road surface color variations difficult detection of both yellow and white lines (low contrast).
+* Shaky lines in video streams 
+* Curved lanes are not well detected nor extrapolated
+
+All these shortcomings render our basic pipeline unable to properly process and obtain annotations for the challenge video (click to play).
 
 [![Challenge Basic](http://img.youtube.com/vi/GubKeWtd768/0.jpg)](http://www.youtube.com/watch?v=GubKeWtd768 "Self-Driving Car Nanodegree - P1: Finding Lane Lines - Challenge Basic")
 
@@ -129,10 +131,16 @@ In this section we will describe the improvements that were implemented to produ
 
 #### 3.1. Histogram Equalization
 
+Histogram equalization is a common pre-processing operation for adjusting image intensities to enhance contrast. This simple operation will help the pipeline tell apart the lanes from the road since low contrast or bad contrast was one of the main problems for the challenge video.
+
 ![Grayscale Conversion][image1_grayscale]
 ![Equalized Histogram][image1_equalized]
 
 #### 3.2. White/Yellow HSV Masking
+
+Grayscale intensity thresholding was a good alternative for detecting white lanes and it even worked surprisingly well for yellow lanes on the test images and one of the basic videos. However, for more challenging scenarios as the example we are dealing with, it turns out to be not enough. We replaced that thresholding for a bi-color masking. First, we converted the image to a better color space for differentiating colors, e.g., HSV. After that, we applied our helper function `mask_color_hsv` which makes use of `cv2.inRange` and `cv2.bitwise_and` to generate and apply a mask respectively for a given range in that color space.
+
+After fine-tuning, we found out that the range `[0, 0, 223] - [255, 32, 255]` produced good results for white masking. The range `[20, 100, 100] - [30, 255, 255]` was used for yellow masking.
 
 ![Input Image 3][image3]
 
@@ -140,6 +148,8 @@ In this section we will describe the improvements that were implemented to produ
 ![Image 3 Yellow Mask][image3_yellowmask]
 
 #### 3.3. Outlier Filtering
+
+We noticed that some outlier lines were detected despite our efforts. In order to prune them, we applied a slope-based filter, filtering out any line whose slope is greater than `tan(PI/4)` or smaller than `tan(3*PI/4)` (which is a reasonable range for lane slopes. In the following video (click to play) we can observe outliers in green and good lines in red for the challenge video.
 
 [![Outlier Filtering](http://img.youtube.com/vi/eFkr1CV-LCU/0.jpg)](http://www.youtube.com/watch?v=eFkr1CV-LCU "Self-Driving Car Nanodegree - P1: Finding Lane Lines - Outlier Filtering")
 
